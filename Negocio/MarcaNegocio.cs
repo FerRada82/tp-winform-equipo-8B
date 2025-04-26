@@ -19,7 +19,10 @@ namespace Negocio
 
             try
             {
-                conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALAGO_P3_DB; integrated securty=true;";
+                //conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALAGO_P3_DB; integrated security=true";
+                /// por algun motivo no me funciono con la forma de arriba...
+                conexion.ConnectionString = "Data Source = .\\SQLEXPRESS; Initial Catalog =CATALOGO_P3_DB; Integrated Security = true";
+
                 comando.CommandType = System.Data.CommandType.Text;
                 comando.CommandText = "Select Id, Descripcion from MARCAS";
                 comando.Connection = conexion;
@@ -35,7 +38,7 @@ namespace Negocio
                     lista.Add(aux);
 
                 }
-
+                conexion.Close();
                 return lista;   
 
             }
