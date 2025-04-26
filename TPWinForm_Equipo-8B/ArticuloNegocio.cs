@@ -8,5 +8,6 @@ namespace TPWinForm_Equipo_8B
 {
     internal class ArticuloNegocio
     {
+        /// PRUEBA COMMIT
     }
 }
