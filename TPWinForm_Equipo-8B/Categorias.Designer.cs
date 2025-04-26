@@ -39,7 +39,7 @@
             // fguardar
             // 
             this.fguardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.fguardar.Location = new System.Drawing.Point(96, 141);
+            this.fguardar.Location = new System.Drawing.Point(127, 246);
             this.fguardar.Margin = new System.Windows.Forms.Padding(2);
             this.fguardar.Name = "fguardar";
             this.fguardar.Size = new System.Drawing.Size(28, 28);
@@ -48,7 +48,7 @@
             // 
             // feliminar
             // 
-            this.feliminar.Location = new System.Drawing.Point(11, 186);
+            this.feliminar.Location = new System.Drawing.Point(42, 291);
             this.feliminar.Margin = new System.Windows.Forms.Padding(2);
             this.feliminar.Name = "feliminar";
             this.feliminar.Size = new System.Drawing.Size(80, 28);
@@ -58,7 +58,7 @@
             // 
             // fmodificar
             // 
-            this.fmodificar.Location = new System.Drawing.Point(11, 141);
+            this.fmodificar.Location = new System.Drawing.Point(42, 246);
             this.fmodificar.Margin = new System.Windows.Forms.Padding(2);
             this.fmodificar.Name = "fmodificar";
             this.fmodificar.Size = new System.Drawing.Size(80, 28);
@@ -68,7 +68,7 @@
             // 
             // fagregar
             // 
-            this.fagregar.Location = new System.Drawing.Point(11, 100);
+            this.fagregar.Location = new System.Drawing.Point(42, 205);
             this.fagregar.Margin = new System.Windows.Forms.Padding(2);
             this.fagregar.Name = "fagregar";
             this.fagregar.Size = new System.Drawing.Size(80, 28);
@@ -79,7 +79,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(143, 69);
+            this.dataGridView1.Location = new System.Drawing.Point(165, 116);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
