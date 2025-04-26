@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TPWinForm_Equipo_8B
+namespace Dominio
+
 {
-    internal class ElementoMarca
+    public class Marca
     {
         public int Id { get; set; }
         public string Descripcion { get; set; }
