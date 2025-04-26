@@ -10,6 +10,7 @@ namespace Negocio
 {
     public class MarcaNegocio
     {
+        /*
         public List<Marca> listar()
         {
             List<Marca> lista = new List<Marca>();
@@ -49,6 +50,52 @@ namespace Negocio
 
 
         }
+        */
+        public void agregar(Marca nuevaMarca)
+        {
+
+        }
+        public void modificar(Marca modifMarca)
+        {
+
+        }
+        public List<Marca> listar()
+        {
+            List<Marca> lista = new List<Marca>();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+
+                datos.setConsulta("Select Id, Descripcion from MARCAS");
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+
+                    Marca aux = new Marca();
+                    aux.Id = (int)datos.Lector["Id"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+
+                    lista.Add(aux);
+
+                }
+                return lista;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+
+        }
 
     }
+
+
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TPWinForm_Equipo_8B
+namespace Negocio
 {
     public class AccesoDatos
     {
