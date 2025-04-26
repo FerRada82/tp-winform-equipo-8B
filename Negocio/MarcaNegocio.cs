@@ -53,6 +53,38 @@ namespace Negocio
         */
         public void agregar(Marca nuevaMarca)
         {
+            AccesoDatos datos = new AccesoDatos();
+            List<Marca> lista = new List<Marca>();
+
+            try
+            {
+                lista = listar();
+
+                foreach (Marca marca in lista) {
+
+                    if(marca.Descripcion == nuevaMarca.Descripcion)
+                    {
+
+                        //// NO PUEDO AGREGAR UN MENSAJE EN PANTALLA SOLO EN CONSOLA, LA MARCA YA EXISTE !!!
+                        Console.WriteLine("Imposible cargar, ya existe una marca con ese nombre!");
+                        return;
+                    }
+               
+                }
+
+                datos.setConsulta("Insert into MARCAS (Descripcion)values('" + nuevaMarca.Descripcion + "')");
+                datos.ejecutarAccion();
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
 
         }
         public void modificar(Marca modifMarca)

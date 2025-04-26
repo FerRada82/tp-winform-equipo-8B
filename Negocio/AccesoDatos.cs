@@ -39,19 +39,38 @@ namespace Negocio
                 conexion.Open();
                 lector = comando.ExecuteReader();
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 throw ex;
             }
-       
+
         }
 
         public void cerrarConexion()
         {
-            if(lector != null)
+            if (lector != null)
             {
                 lector.Close();
             }
             conexion.Close();
+        }
+
+        public void ejecutarAccion()
+        {
+            comando.Connection = conexion;
+
+            try
+            {
+                conexion.Open();
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+
+            }
+
         }
     }
 }
