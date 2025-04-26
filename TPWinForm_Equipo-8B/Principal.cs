@@ -21,5 +21,11 @@ namespace TPWinForm_Equipo_8B
         {
 
         }
+
+        private void btnCategorias_Click(object sender, EventArgs e)
+        {
+            Marcas marcas = new Marcas();
+            marcas.Show();
+        }
     }
 }

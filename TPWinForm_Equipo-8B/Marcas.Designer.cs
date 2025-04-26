@@ -32,8 +32,8 @@
             this.feliminar = new System.Windows.Forms.Button();
             this.fmodificar = new System.Windows.Forms.Button();
             this.fagregar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.marcagv = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.marcagv)).BeginInit();
             this.SuspendLayout();
             // 
             // fguardar
@@ -76,15 +76,15 @@
             this.fagregar.Text = "Agregar";
             this.fagregar.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // marcagv
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(156, 11);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(180, 202);
-            this.dataGridView1.TabIndex = 32;
+            this.marcagv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.marcagv.Location = new System.Drawing.Point(156, 11);
+            this.marcagv.Margin = new System.Windows.Forms.Padding(2);
+            this.marcagv.Name = "marcagv";
+            this.marcagv.RowHeadersWidth = 51;
+            this.marcagv.Size = new System.Drawing.Size(180, 202);
+            this.marcagv.TabIndex = 32;
             // 
             // Marcas
             // 
@@ -95,10 +95,11 @@
             this.Controls.Add(this.feliminar);
             this.Controls.Add(this.fmodificar);
             this.Controls.Add(this.fagregar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.marcagv);
             this.Name = "Marcas";
             this.Text = "Marcas";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.Marcas_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.marcagv)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -109,6 +110,6 @@
         private System.Windows.Forms.Button feliminar;
         private System.Windows.Forms.Button fmodificar;
         private System.Windows.Forms.Button fagregar;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView marcagv;
     }
 }

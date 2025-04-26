@@ -19,7 +19,7 @@ namespace Negocio
 
             try
             {
-                conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALAGO_P3_DB; integrated securty=true; "
+                conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALAGO_P3_DB; integrated securty=true;";
                 comando.CommandType = System.Data.CommandType.Text;
                 comando.CommandText = "Select Id, Descripcion from MARCAS";
                 comando.Connection = conexion;

@@ -49,10 +49,6 @@
       <Project>{46ebb1de-b425-4cbf-abb6-3730b5594d20}</Project>
       <Name>Dominio</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TPWinForm_Equipo-8B\TPWinForm_Equipo-8B.csproj">
-      <Project>{93c9f525-9cba-42cb-8a7b-e4ef7c44d19c}</Project>
-      <Name>TPWinForm_Equipo-8B</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
