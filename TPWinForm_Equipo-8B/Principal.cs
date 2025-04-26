@@ -16,5 +16,10 @@ namespace TPWinForm_Equipo_8B
         {
             InitializeComponent();
         }
+
+        private void Principal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

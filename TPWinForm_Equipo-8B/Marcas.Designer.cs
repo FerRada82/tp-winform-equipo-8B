@@ -28,12 +28,87 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.fguardar = new System.Windows.Forms.Button();
+            this.feliminar = new System.Windows.Forms.Button();
+            this.fmodificar = new System.Windows.Forms.Button();
+            this.fagregar = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // fguardar
+            // 
+            this.fguardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.fguardar.Location = new System.Drawing.Point(103, 94);
+            this.fguardar.Margin = new System.Windows.Forms.Padding(2);
+            this.fguardar.Name = "fguardar";
+            this.fguardar.Size = new System.Drawing.Size(28, 28);
+            this.fguardar.TabIndex = 36;
+            this.fguardar.UseVisualStyleBackColor = true;
+            // 
+            // feliminar
+            // 
+            this.feliminar.Location = new System.Drawing.Point(18, 139);
+            this.feliminar.Margin = new System.Windows.Forms.Padding(2);
+            this.feliminar.Name = "feliminar";
+            this.feliminar.Size = new System.Drawing.Size(80, 28);
+            this.feliminar.TabIndex = 35;
+            this.feliminar.Text = "Eliminar";
+            this.feliminar.UseVisualStyleBackColor = true;
+            // 
+            // fmodificar
+            // 
+            this.fmodificar.Location = new System.Drawing.Point(18, 94);
+            this.fmodificar.Margin = new System.Windows.Forms.Padding(2);
+            this.fmodificar.Name = "fmodificar";
+            this.fmodificar.Size = new System.Drawing.Size(80, 28);
+            this.fmodificar.TabIndex = 34;
+            this.fmodificar.Text = "Modificar";
+            this.fmodificar.UseVisualStyleBackColor = true;
+            // 
+            // fagregar
+            // 
+            this.fagregar.Location = new System.Drawing.Point(18, 53);
+            this.fagregar.Margin = new System.Windows.Forms.Padding(2);
+            this.fagregar.Name = "fagregar";
+            this.fagregar.Size = new System.Drawing.Size(80, 28);
+            this.fagregar.TabIndex = 33;
+            this.fagregar.Text = "Agregar";
+            this.fagregar.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(156, 11);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.Size = new System.Drawing.Size(180, 202);
+            this.dataGridView1.TabIndex = 32;
+            // 
+            // Marcas
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(400, 251);
+            this.Controls.Add(this.fguardar);
+            this.Controls.Add(this.feliminar);
+            this.Controls.Add(this.fmodificar);
+            this.Controls.Add(this.fagregar);
+            this.Controls.Add(this.dataGridView1);
+            this.Name = "Marcas";
             this.Text = "Marcas";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button fguardar;
+        private System.Windows.Forms.Button feliminar;
+        private System.Windows.Forms.Button fmodificar;
+        private System.Windows.Forms.Button fagregar;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
