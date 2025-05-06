@@ -4,12 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TPWinForm_Equipo_8B
+namespace Dominio
 {
-    internal class ElementoCategoria
+    public class Categoria
     {
         public int Id { get; set; }
         public string Descripcion { get; set; }
 
+        public override string ToString()
+        {
+            return Descripcion;
+        }
     }
 }

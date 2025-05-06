@@ -72,7 +72,7 @@ namespace Negocio
                
                 }
 
-                datos.setConsulta("Insert into MARCAS (Descripcion)values('" + nuevaMarca.Descripcion + "')");
+                datos.setearConsulta("Insert into MARCAS (Descripcion)values('" + nuevaMarca.Descripcion + "')");
                 datos.ejecutarAccion();
 
 
@@ -99,7 +99,7 @@ namespace Negocio
             try
             {
 
-                datos.setConsulta("Select Id, Descripcion from MARCAS");
+                datos.setearConsulta("Select Id, Descripcion from MARCAS");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
