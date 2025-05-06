@@ -10,47 +10,37 @@ namespace Negocio
 {
     public class MarcaNegocio
     {
-        /*
-        public List<Marca> listar()
+        public List<Marca> Listar()
         {
+
             List<Marca> lista = new List<Marca>();
-            SqlConnection conexion = new SqlConnection();
-            SqlCommand comando = new SqlCommand();
-            SqlDataReader lector;
+            AccesoDatos Datos = new AccesoDatos();
 
             try
             {
-                //conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALAGO_P3_DB; integrated security=true";
-                /// por algun motivo no me funciono con la forma de arriba...
-                conexion.ConnectionString = "Data Source = .\\SQLEXPRESS; Initial Catalog =CATALOGO_P3_DB; Integrated Security = true";
+                Datos.setearConsulta("SELECT Id, Descripcion FROM MARCAS");
+                Datos.ejecutarLectura();
 
-                comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "Select Id, Descripcion from MARCAS";
-                comando.Connection = conexion;
-                conexion.Open();
-                lector = comando.ExecuteReader();
-
-                while (lector.Read()) {
-                
+                while (Datos.Lector.Read())
+                {
                     Marca aux = new Marca();
-                    aux.Id = (int)lector["Id"];
-                    aux.Descripcion = (string)lector["Descripcion"];
+                    aux.Id = (int)Datos.Lector["Id"];
+                    aux.Descripcion = (string)Datos.Lector["Descripcion"];
 
                     lista.Add(aux);
-
                 }
-                conexion.Close();
-                return lista;   
-
+                return lista;
             }
             catch (Exception ex)
             {
+
                 throw ex;
             }
-
-
+            finally
+            {
+                Datos.cerrarConexion();
+            }
         }
-        */
         public void agregar(Marca nuevaMarca)
         {
             AccesoDatos datos = new AccesoDatos();

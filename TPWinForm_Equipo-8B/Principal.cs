@@ -47,6 +47,13 @@ namespace TPWinForm_Equipo_8B
         }
 
 
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            ABM formularioA = new ABM();
+            formularioA.ShowDialog();
+            cargar();
+        }
+
         private void btnCategorias_Click(object sender, EventArgs e)
         {
          
@@ -56,6 +63,56 @@ namespace TPWinForm_Equipo_8B
         {
             Marcas marcas = new Marcas();
             marcas.Show();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado;
+            seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+
+            ABM formularioM = new ABM(seleccionado);
+            formularioM.ShowDialog();
+            cargar();
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+
+            Articulo seleccionado;
+            try
+            {
+                DialogResult resultado = MessageBox.Show(
+                    "¿Desea eliminarlo?",
+                    "Eliminando",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+                if (resultado == DialogResult.Yes)
+                {
+                    seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                    negocio.eliminar(seleccionado.Id);
+                    cargar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void btnDetalle_Click(object sender, EventArgs e)
+        {
+            if (dgvArticulos.CurrentRow == null)
+            {
+                MessageBox.Show("Por favor seleccione un artículo", "Advertencia",
+                               MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            ABM formularioDetalle = new ABM(seleccionado, true); 
+            formularioDetalle.ShowDialog();
         }
     }
 }

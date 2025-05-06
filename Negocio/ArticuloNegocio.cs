@@ -83,35 +83,6 @@ namespace Negocio
                 Datos.setearParametro("@idCategoria", nuevo.Categoria.Id);
                 Datos.ejecutarAccion();
 
-                // A MI Maneraa
-                //MARCAS
-                /*   Datos.setearConsulta("SELECT Id FROM MARCAS WHERE Descripcion = '" + nuevo.Marca.Descripcion + "'");
-                   Datos.ejecutarLectura();
-
-                   if (Datos.Lector.Read())
-                   {
-                       nuevo.Marca.Id = (int)Datos.Lector["Id"];
-                   }
-                   Datos.cerrarConexion();
-                   //CATEGORIAS
-                   Datos.setearConsulta("SELECT Id FROM CATEGORIAS WHERE Descripcion = '" + nuevo.Categoria.Descripcion + "'");
-                   Datos.ejecutarLectura();
-
-                   if (Datos.Lector.Read())
-                   {
-                       nuevo.Categoria.Id = (int)Datos.Lector["Id"];
-                   }
-                   Datos.cerrarConexion();
-
-
-                   Datos = new AccesoDatos();
-
-                   if (nuevo.Marca.Id > 0 && nuevo.Categoria.Id > 0)
-                   {
-                       Datos.setearConsulta("INSERT INTO ARTICULOS (codigo, nombre, descripcion,idMarca,idCategoria, precio) VALUES ('" + nuevo.Codigo + "','" + nuevo.Nombre + "','" + nuevo.Descripcion + "'," + nuevo.Marca.Id + "," + nuevo.Categoria.Id + "," + nuevo.Precio + ")");
-
-                       Datos.ejecucarAccion();
-                   }*/
             }
             catch (Exception ex)
             {
