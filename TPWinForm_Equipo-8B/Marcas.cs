@@ -67,5 +67,9 @@ namespace TPWinForm_Equipo_8B
 
         }
 
+        private void newMarca_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

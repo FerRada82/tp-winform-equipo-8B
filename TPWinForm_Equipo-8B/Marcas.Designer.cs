@@ -88,6 +88,7 @@
             this.newMarca.Name = "newMarca";
             this.newMarca.Size = new System.Drawing.Size(231, 23);
             this.newMarca.TabIndex = 38;
+            this.newMarca.TextChanged += new System.EventHandler(this.newMarca_TextChanged);
             // 
             // fmodificar
             // 

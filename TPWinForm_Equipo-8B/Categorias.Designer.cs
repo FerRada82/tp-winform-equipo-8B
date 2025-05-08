@@ -29,86 +29,99 @@
         private void InitializeComponent()
         {
             this.fguardar = new System.Windows.Forms.Button();
-            this.feliminar = new System.Windows.Forms.Button();
-            this.fmodificar = new System.Windows.Forms.Button();
-            this.fagregar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.btneliminar = new System.Windows.Forms.Button();
+            this.btnmodificar = new System.Windows.Forms.Button();
+            this.btnagregar = new System.Windows.Forms.Button();
+            this.dgvCategorias = new System.Windows.Forms.DataGridView();
+            this.tbxCategoria = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCategorias)).BeginInit();
             this.SuspendLayout();
             // 
             // fguardar
             // 
             this.fguardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.fguardar.Location = new System.Drawing.Point(127, 246);
+            this.fguardar.Location = new System.Drawing.Point(35, 5);
             this.fguardar.Margin = new System.Windows.Forms.Padding(2);
             this.fguardar.Name = "fguardar";
             this.fguardar.Size = new System.Drawing.Size(28, 28);
             this.fguardar.TabIndex = 36;
             this.fguardar.UseVisualStyleBackColor = true;
             // 
-            // feliminar
+            // btneliminar
             // 
-            this.feliminar.Location = new System.Drawing.Point(42, 291);
-            this.feliminar.Margin = new System.Windows.Forms.Padding(2);
-            this.feliminar.Name = "feliminar";
-            this.feliminar.Size = new System.Drawing.Size(80, 28);
-            this.feliminar.TabIndex = 35;
-            this.feliminar.Text = "Eliminar";
-            this.feliminar.UseVisualStyleBackColor = true;
+            this.btneliminar.Location = new System.Drawing.Point(135, 37);
+            this.btneliminar.Margin = new System.Windows.Forms.Padding(2);
+            this.btneliminar.Name = "btneliminar";
+            this.btneliminar.Size = new System.Drawing.Size(88, 28);
+            this.btneliminar.TabIndex = 35;
+            this.btneliminar.Text = "Eliminar";
+            this.btneliminar.UseVisualStyleBackColor = true;
             // 
-            // fmodificar
+            // btnmodificar
             // 
-            this.fmodificar.Location = new System.Drawing.Point(42, 246);
-            this.fmodificar.Margin = new System.Windows.Forms.Padding(2);
-            this.fmodificar.Name = "fmodificar";
-            this.fmodificar.Size = new System.Drawing.Size(80, 28);
-            this.fmodificar.TabIndex = 34;
-            this.fmodificar.Text = "Modificar";
-            this.fmodificar.UseVisualStyleBackColor = true;
+            this.btnmodificar.Location = new System.Drawing.Point(35, 78);
+            this.btnmodificar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnmodificar.Name = "btnmodificar";
+            this.btnmodificar.Size = new System.Drawing.Size(88, 28);
+            this.btnmodificar.TabIndex = 34;
+            this.btnmodificar.Text = "Modificar";
+            this.btnmodificar.UseVisualStyleBackColor = true;
             // 
-            // fagregar
+            // btnagregar
             // 
-            this.fagregar.Location = new System.Drawing.Point(42, 205);
-            this.fagregar.Margin = new System.Windows.Forms.Padding(2);
-            this.fagregar.Name = "fagregar";
-            this.fagregar.Size = new System.Drawing.Size(80, 28);
-            this.fagregar.TabIndex = 33;
-            this.fagregar.Text = "Agregar";
-            this.fagregar.UseVisualStyleBackColor = true;
+            this.btnagregar.Location = new System.Drawing.Point(35, 37);
+            this.btnagregar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnagregar.Name = "btnagregar";
+            this.btnagregar.Size = new System.Drawing.Size(88, 28);
+            this.btnagregar.TabIndex = 33;
+            this.btnagregar.Text = "Agregar";
+            this.btnagregar.UseVisualStyleBackColor = true;
+            this.btnagregar.Click += new System.EventHandler(this.btnagregar_Click);
             // 
-            // dataGridView1
+            // dgvCategorias
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(165, 116);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(180, 202);
-            this.dataGridView1.TabIndex = 32;
+            this.dgvCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCategorias.Location = new System.Drawing.Point(35, 158);
+            this.dgvCategorias.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvCategorias.Name = "dgvCategorias";
+            this.dgvCategorias.RowHeadersWidth = 51;
+            this.dgvCategorias.Size = new System.Drawing.Size(188, 202);
+            this.dgvCategorias.TabIndex = 32;
+            // 
+            // tbxCategoria
+            // 
+            this.tbxCategoria.Location = new System.Drawing.Point(35, 124);
+            this.tbxCategoria.Name = "tbxCategoria";
+            this.tbxCategoria.Size = new System.Drawing.Size(188, 20);
+            this.tbxCategoria.TabIndex = 37;
             // 
             // Categorias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(356, 329);
+            this.ClientSize = new System.Drawing.Size(268, 373);
+            this.Controls.Add(this.tbxCategoria);
             this.Controls.Add(this.fguardar);
-            this.Controls.Add(this.feliminar);
-            this.Controls.Add(this.fmodificar);
-            this.Controls.Add(this.fagregar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.btneliminar);
+            this.Controls.Add(this.btnmodificar);
+            this.Controls.Add(this.btnagregar);
+            this.Controls.Add(this.dgvCategorias);
             this.Name = "Categorias";
             this.Text = "Categorias";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.Categorias_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCategorias)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Button fguardar;
-        private System.Windows.Forms.Button feliminar;
-        private System.Windows.Forms.Button fmodificar;
-        private System.Windows.Forms.Button fagregar;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btneliminar;
+        private System.Windows.Forms.Button btnmodificar;
+        private System.Windows.Forms.Button btnagregar;
+        private System.Windows.Forms.DataGridView dgvCategorias;
+        private System.Windows.Forms.TextBox tbxCategoria;
     }
 }

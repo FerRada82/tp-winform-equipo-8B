@@ -56,7 +56,8 @@ namespace TPWinForm_Equipo_8B
 
         private void btnCategorias_Click(object sender, EventArgs e)
         {
-         
+            Categorias categorias = new Categorias();
+            categorias.Show();
         }
 
         private void btnMarcas_Click(object sender, EventArgs e)
@@ -113,6 +114,11 @@ namespace TPWinForm_Equipo_8B
             Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
             ABM formularioDetalle = new ABM(seleccionado, true); 
             formularioDetalle.ShowDialog();
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

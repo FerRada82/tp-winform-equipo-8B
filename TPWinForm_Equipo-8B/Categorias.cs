@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dominio;
+using Negocio;
 
 namespace TPWinForm_Equipo_8B
 {
@@ -15,6 +17,30 @@ namespace TPWinForm_Equipo_8B
         public Categorias()
         {
             InitializeComponent();
+        }
+
+        private void Categorias_Load(object sender, EventArgs e)
+        {
+            CategoriaNegocio categoria = new CategoriaNegocio();
+            dgvCategorias.DataSource = categoria.Listar();
+            dgvCategorias.Columns["Id"].Visible = false;
+        }
+
+        private void btnagregar_Click(object sender, EventArgs e)
+        {
+            /*Categoria nuevacategoria = new Categoria();
+            CategoriaNegocio negocio = new CategoriaNegocio();
+
+            try
+            {
+                nuevacategoria.Descripcion = tbxCategoria.Text;
+                negocio.a
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }*/
         }
     }
 }
