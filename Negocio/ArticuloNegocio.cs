@@ -13,6 +13,7 @@ namespace Negocio
 {
     public class ArticuloNegocio
     {
+
         public List<Articulo> ArticuloLista()
         {
             List<Articulo> Lista = new List<Articulo>();
@@ -20,18 +21,20 @@ namespace Negocio
 
             try
             {
+              
                 Datos.setearConsulta("SELECT A.Id as idArti, " +
-                                      "idMarca, " +
-                                      "codigo, " +
-                                      "nombre, " +
-                                      "precio, " +
-                                      "A.Descripcion, " +
-                                      "M.Id as idMarcaObj, " +
-                                      "M.Descripcion as marcaDescripcion, " +
-                                      "C.Id as idCategoriaObj, " +
-                                      "C.Descripcion as categoriaDescripcion, " +
-                                      "A.idCategoria " +
-                                      "FROM ARTICULOS A, MARCAS M, CATEGORIAS C WHERE M.Id = A.IdMarca AND C.Id = A.IdCategoria ");
+                                    "idMarca, " +
+                                    "codigo, " +
+                                    "nombre, " +
+                                    "precio, " +
+                                    "A.Descripcion, " +
+                                    "M.Id as idMarcaObj, " +
+                                    "M.Descripcion as marcaDescripcion, " +
+                                    "C.Id as idCategoriaObj, " +
+                                    "C.Descripcion as categoriaDescripcion, " +
+                                    "A.idCategoria " +
+                                    "FROM ARTICULOS A, MARCAS M, CATEGORIAS C " +
+                                    "WHERE M.Id = A.IdMarca AND C.Id = A.IdCategoria");
                 Datos.ejecutarLectura();
 
                 while (Datos.Lector.Read())
@@ -54,23 +57,52 @@ namespace Negocio
                     aux.Categoria.Id = (int)Datos.Lector["idCategoriaObj"];
                     aux.Categoria.Descripcion = (string)Datos.Lector["categoriaDescripcion"];
 
+                    aux.RutasImagenes = ObtenerImagenesPorArticulo(aux.Id);
+
                     Lista.Add(aux);
                 }
 
                 return Lista;
-
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally
             {
                 Datos.cerrarConexion();
             }
-
         }
+
+        private List<string> ObtenerImagenesPorArticulo(int idArticulo)
+        {
+            List<string> imagenes = new List<string>();
+            AccesoDatos Datos = new AccesoDatos();
+
+            try
+            {
+                Datos.setearConsulta("SELECT ImagenUrl FROM Imagenes WHERE IdArticulo = @IdArticulo");
+                Datos.setearParametro("@IdArticulo", idArticulo);
+                Datos.ejecutarLectura();
+
+                while (Datos.Lector.Read())
+                {
+                    imagenes.Add((string)Datos.Lector["ImagenUrl"]);
+                }
+
+                return imagenes;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                Datos.cerrarConexion();
+            }
+        }
+
+
         public void agregar(Articulo nuevo)
         {
             AccesoDatos Datos = new AccesoDatos();
@@ -143,3 +175,4 @@ namespace Negocio
         }
     }
 }
+

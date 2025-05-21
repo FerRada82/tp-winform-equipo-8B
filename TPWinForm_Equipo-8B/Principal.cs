@@ -15,6 +15,9 @@ namespace TPWinForm_Equipo_8B
     public partial class Principal : Form
     {
         private List<Articulo> listaArticulo;
+        private int indiceImagenActual = 0;
+        private Articulo articuloActual;
+
         public Principal()
         {
             InitializeComponent();
@@ -32,20 +35,107 @@ namespace TPWinForm_Equipo_8B
             try
             {
                 listaArticulo = negocio.ArticuloLista();
-
                 dgvArticulos.DataSource = listaArticulo;
                 dgvArticulos.Columns["IdMarca"].Visible = false;
                 dgvArticulos.Columns["IdCategoria"].Visible = false;
 
+
+                if (listaArticulo.Count > 0)
+                {
+                    dgvArticulos.Rows[0].Selected = true;
+                    articuloActual = listaArticulo[0];
+                    MostrarImagenArticulo(articuloActual);
+                }
             }
             catch (Exception ex)
             {
-
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show($"Error al cargar artículos: {ex.Message}");
+                MostrarImagenPorDefecto();
             }
-
         }
 
+        private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvArticulos.CurrentRow != null)
+            {
+                articuloActual = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                indiceImagenActual = 0;
+                MostrarImagenArticulo(articuloActual);
+                ActualizarEstadoBotones();
+            }
+        }
+
+        private void MostrarImagenArticulo(Articulo articulo)
+        {
+            try
+            {
+                if (articulo.RutasImagenes != null && articulo.RutasImagenes.Count > 0)
+                {
+                    string urlImagen = Uri.UnescapeDataString(articulo.RutasImagenes[indiceImagenActual]);
+                    pbImagen.LoadAsync(urlImagen);
+                }
+                else
+                {
+                    MostrarImagenPorDefecto();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar imagen: {ex.Message}");
+                MostrarImagenPorDefecto();
+            }
+        }
+
+        private void MostrarImagenPorDefecto()
+        {
+            try
+            {
+                pbImagen.Load("https://s1.qwant.com/thumbr/474x355/9/c/3a3f18de5d589407b3abcc185fce3e756b9485acad5b920d3d11446c6a2f90/th.jpg?u=https%3A%2F%2Ftse.mm.bing.net%2Fth%3Fid%3DOIP.AhRqkCZNh-f7x1ZEE3G34QHaFj%26pid%3DApi&q=0&b=1&p=0&a=0");
+            }
+            catch
+            {
+                pbImagen.Load("https://s1.qwant.com/thumbr/474x355/9/c/3a3f18de5d589407b3abcc185fce3e756b9485acad5b920d3d11446c6a2f90/th.jpg?u=https%3A%2F%2Ftse.mm.bing.net%2Fth%3Fid%3DOIP.AhRqkCZNh-f7x1ZEE3G34QHaFj%26pid%3DApi&q=0&b=1&p=0&a=0");
+            }
+        }
+
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            if (articuloActual != null && articuloActual.RutasImagenes != null)
+            {
+                indiceImagenActual++;
+                if (indiceImagenActual >= articuloActual.RutasImagenes.Count)
+                {
+                    indiceImagenActual = 0;
+                }
+                MostrarImagenArticulo(articuloActual);
+                ActualizarEstadoBotones();
+            }
+        }
+
+        private void btnAnterior_Click(object sender, EventArgs e)
+        {
+            if (articuloActual != null && articuloActual.RutasImagenes != null)
+            {
+                indiceImagenActual--;
+                if (indiceImagenActual < 0)
+                {
+                    indiceImagenActual = articuloActual.RutasImagenes.Count - 1;
+                }
+                MostrarImagenArticulo(articuloActual);
+                ActualizarEstadoBotones();
+            }
+        }
+
+        private void ActualizarEstadoBotones()
+        {
+
+            bool hayImagenes = articuloActual != null &&
+                               articuloActual.RutasImagenes != null &&
+                               articuloActual.RutasImagenes.Count > 1;
+
+            btnAnterior.Enabled = hayImagenes;
+            btnSiguiente.Enabled = hayImagenes;
+        }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -56,8 +146,7 @@ namespace TPWinForm_Equipo_8B
 
         private void btnCategorias_Click(object sender, EventArgs e)
         {
-            Categorias categorias = new Categorias();
-            categorias.Show();
+            // Falta
         }
 
         private void btnMarcas_Click(object sender, EventArgs e)
@@ -112,13 +201,10 @@ namespace TPWinForm_Equipo_8B
             }
 
             Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-            ABM formularioDetalle = new ABM(seleccionado, true); 
+            ABM formularioDetalle = new ABM(seleccionado, true);
             formularioDetalle.ShowDialog();
         }
 
-        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
+ 
     }
 }
