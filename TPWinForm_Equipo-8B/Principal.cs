@@ -71,17 +71,18 @@ namespace TPWinForm_Equipo_8B
             {
                 if (articulo.RutasImagenes != null && articulo.RutasImagenes.Count > 0)
                 {
-                    pbImagen.Load(articulo.RutasImagenes[indiceImagenActual]); 
-
+                    
+                          pbImagen.Load(articulo.RutasImagenes[indiceImagenActual]);
+                        
                 }
                 else
                 {
                     MostrarImagenPorDefecto();
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show($"Error al cargar imagen: {ex.Message}");
+               // MessageBox.Show($"Error al cargar imagen: {ex.Message}");
                 MostrarImagenPorDefecto();
             }
         }
@@ -217,6 +218,24 @@ namespace TPWinForm_Equipo_8B
             cargar();
         }
 
+        private void fbuscar_TextChanged(object sender, EventArgs e)
+        {
+            List<Articulo> listasFiltrada;
+            String filtro = fbuscar.Text;
 
+            if (filtro != "")
+            {
+                listasFiltrada = listaArticulo.FindAll(ARTI => ARTI.Nombre.ToUpper().Contains(filtro.ToUpper()));
+
+            }
+            else
+            {
+                listasFiltrada = listaArticulo;
+            }
+            dgvArticulos.DataSource = null;
+            dgvArticulos.DataSource = listasFiltrada;
+
+
+        }
     }
 }

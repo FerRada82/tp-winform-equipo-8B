@@ -44,7 +44,6 @@
             this.btnBorrar = new System.Windows.Forms.ToolStripButton();
             this.btnModificar = new System.Windows.Forms.ToolStripButton();
             this.btnAgregar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.fbuscar = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -141,7 +140,7 @@
             this.btnDetalle.Image = ((System.Drawing.Image)(resources.GetObject("btnDetalle.Image")));
             this.btnDetalle.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDetalle.Name = "btnDetalle";
-            this.btnDetalle.Size = new System.Drawing.Size(29, 28);
+            this.btnDetalle.Size = new System.Drawing.Size(29, 24);
             this.btnDetalle.Text = "toolStripButton2";
             this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);
             // 
@@ -196,20 +195,12 @@
             this.btnAgregar.ToolTipText = "Agregar un nuevo Artículo";
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(29, 24);
-            this.toolStripButton1.Text = "toolStripButton1";
-            // 
             // fbuscar
             // 
             this.fbuscar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.fbuscar.Name = "fbuscar";
             this.fbuscar.Size = new System.Drawing.Size(300, 27);
+            this.fbuscar.TextChanged += new System.EventHandler(this.fbuscar_TextChanged);
             // 
             // toolStripLabel2
             // 
@@ -229,7 +220,6 @@
             this.toolStripLabel1,
             this.toolStripLabel2,
             this.fbuscar,
-            this.toolStripButton1,
             this.btnAgregar,
             this.btnModificar,
             this.btnBorrar,
@@ -237,9 +227,9 @@
             this.btnCategorias,
             this.btnDetalle,
             this.btnImagen});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 30);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1371, 31);
+            this.toolStrip1.Size = new System.Drawing.Size(1371, 27);
             this.toolStrip1.TabIndex = 10;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -259,7 +249,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1371, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1371, 24);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -358,7 +348,6 @@
         private System.Windows.Forms.ToolStripButton btnBorrar;
         private System.Windows.Forms.ToolStripButton btnModificar;
         private System.Windows.Forms.ToolStripButton btnAgregar;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripTextBox fbuscar;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
