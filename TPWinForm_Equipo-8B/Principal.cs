@@ -146,7 +146,8 @@ namespace TPWinForm_Equipo_8B
 
         private void btnCategorias_Click(object sender, EventArgs e)
         {
-            // Falta
+            Categorias categorias = new Categorias();
+            categorias.Show();
         }
 
         private void btnMarcas_Click(object sender, EventArgs e)

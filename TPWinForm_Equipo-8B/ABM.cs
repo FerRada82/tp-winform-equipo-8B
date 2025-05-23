@@ -38,10 +38,10 @@ namespace TPWinForm_Equipo_8B
 
             try
             {
-                fmarca.DataSource        = marcaNegocio.Listar();
+                fmarca.DataSource        = marcaNegocio.Lista();
                 fmarca.ValueMember       = "Id";
                 fmarca.DisplayMember     = "Descripcion";
-                fcategoria.DataSource    = categoriaNegocio.Listar();
+                fcategoria.DataSource    = categoriaNegocio.Lista();
                 fcategoria.ValueMember   = "Id";
                 fcategoria.DisplayMember = "Descripcion";
 

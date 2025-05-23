@@ -70,6 +70,18 @@
     <Compile Include="Marcas.Designer.cs">
       <DependentUpon>Marcas.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModiCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModiCategoria.Designer.cs">
+      <DependentUpon>ModiCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModiMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModiMarca.Designer.cs">
+      <DependentUpon>ModiMarca.cs</DependentUpon>
+    </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +101,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Marcas.resx">
       <DependentUpon>Marcas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModiCategoria.resx">
+      <DependentUpon>ModiCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModiMarca.resx">
+      <DependentUpon>ModiMarca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>

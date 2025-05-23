@@ -9,7 +9,7 @@ namespace Negocio
 {
     public class CategoriaNegocio
     {
-        public List<Categoria> Listar()
+        public List<Categoria> Lista()
         {
 
             List<Categoria> lista = new List<Categoria>();
@@ -38,6 +38,68 @@ namespace Negocio
             finally
             {
                 Datos.cerrarConexion();
+            }
+        }
+
+        public void agregar(Categoria nuevo)
+        {
+            AccesoDatos Datos = new AccesoDatos();
+
+            try
+            {
+
+                Datos.setearConsulta("INSERT INTO CATEGORIAS (Descripcion) " + "VALUES (@descripcion)");
+                Datos.setearParametro("@descripcion", nuevo.Descripcion);
+
+                Datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                Datos.cerrarConexion();
+
+            }
+        }
+
+        public void modificar(Categoria modificar)
+        {
+            AccesoDatos Datos = new AccesoDatos();
+
+            try
+            {
+                Datos.setearConsulta("UPDATE CATEGORIAS SET Descripcion = @descripcion WHERE Id = @id");
+
+
+                Datos.setearParametro("@id", modificar.Id);
+                Datos.setearParametro("@descripcion", modificar.Descripcion);
+
+
+                Datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        public void eliminar(int id)
+        {
+            AccesoDatos Datos = new AccesoDatos();
+            try
+            {
+                Datos.setearConsulta("DELETE FROM CATEGORIAS WHERE Id = @id");
+                Datos.setearParametro("@id", id);
+                Datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
             }
         }
     }

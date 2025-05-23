@@ -28,26 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.fguardar = new System.Windows.Forms.Button();
             this.fagregar = new System.Windows.Forms.Button();
-            this.marcagv = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.newMarca = new System.Windows.Forms.TextBox();
+            this.dgvMarcas = new System.Windows.Forms.DataGridView();
+            this.fmarca = new System.Windows.Forms.TextBox();
             this.fmodificar = new System.Windows.Forms.Button();
             this.feliminar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.marcagv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMarcas)).BeginInit();
             this.SuspendLayout();
-            // 
-            // fguardar
-            // 
-            this.fguardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.fguardar.Location = new System.Drawing.Point(11, 3);
-            this.fguardar.Margin = new System.Windows.Forms.Padding(2);
-            this.fguardar.Name = "fguardar";
-            this.fguardar.Size = new System.Drawing.Size(28, 28);
-            this.fguardar.TabIndex = 36;
-            this.fguardar.UseVisualStyleBackColor = true;
             // 
             // fagregar
             // 
@@ -60,35 +48,24 @@
             this.fagregar.UseVisualStyleBackColor = true;
             this.fagregar.Click += new System.EventHandler(this.fagregar_Click);
             // 
-            // marcagv
+            // dgvMarcas
             // 
-            this.marcagv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.marcagv.Location = new System.Drawing.Point(11, 150);
-            this.marcagv.Margin = new System.Windows.Forms.Padding(2);
-            this.marcagv.Name = "marcagv";
-            this.marcagv.RowHeadersWidth = 51;
-            this.marcagv.Size = new System.Drawing.Size(231, 202);
-            this.marcagv.TabIndex = 32;
+            this.dgvMarcas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMarcas.Location = new System.Drawing.Point(11, 150);
+            this.dgvMarcas.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvMarcas.Name = "dgvMarcas";
+            this.dgvMarcas.RowHeadersWidth = 51;
+            this.dgvMarcas.Size = new System.Drawing.Size(231, 202);
+            this.dgvMarcas.TabIndex = 32;
             // 
-            // button1
+            // fmarca
             // 
-            this.button1.Location = new System.Drawing.Point(11, 68);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 28);
-            this.button1.TabIndex = 37;
-            this.button1.Text = "Actualizar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // newMarca
-            // 
-            this.newMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.newMarca.Location = new System.Drawing.Point(11, 122);
-            this.newMarca.Name = "newMarca";
-            this.newMarca.Size = new System.Drawing.Size(231, 23);
-            this.newMarca.TabIndex = 38;
-            this.newMarca.TextChanged += new System.EventHandler(this.newMarca_TextChanged);
+            this.fmarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.fmarca.Location = new System.Drawing.Point(11, 122);
+            this.fmarca.Name = "fmarca";
+            this.fmarca.Size = new System.Drawing.Size(231, 23);
+            this.fmarca.TabIndex = 38;
+            this.fmarca.TextChanged += new System.EventHandler(this.newMarca_TextChanged);
             // 
             // fmodificar
             // 
@@ -110,6 +87,7 @@
             this.feliminar.TabIndex = 35;
             this.feliminar.Text = "Eliminar";
             this.feliminar.UseVisualStyleBackColor = true;
+            this.feliminar.Click += new System.EventHandler(this.feliminar_Click);
             // 
             // label1
             // 
@@ -126,29 +104,24 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(253, 387);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.newMarca);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.fguardar);
+            this.Controls.Add(this.fmarca);
             this.Controls.Add(this.feliminar);
             this.Controls.Add(this.fmodificar);
             this.Controls.Add(this.fagregar);
-            this.Controls.Add(this.marcagv);
+            this.Controls.Add(this.dgvMarcas);
             this.Name = "Marcas";
             this.Text = "Marcas";
             this.Load += new System.EventHandler(this.Marcas_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.marcagv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMarcas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button fguardar;
         private System.Windows.Forms.Button fagregar;
-        private System.Windows.Forms.DataGridView marcagv;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox newMarca;
+        private System.Windows.Forms.DataGridView dgvMarcas;
+        private System.Windows.Forms.TextBox fmarca;
         private System.Windows.Forms.Button fmodificar;
         private System.Windows.Forms.Button feliminar;
         private System.Windows.Forms.Label label1;

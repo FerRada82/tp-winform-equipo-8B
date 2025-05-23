@@ -28,44 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.fguardar = new System.Windows.Forms.Button();
             this.btneliminar = new System.Windows.Forms.Button();
             this.btnmodificar = new System.Windows.Forms.Button();
             this.btnagregar = new System.Windows.Forms.Button();
             this.dgvCategorias = new System.Windows.Forms.DataGridView();
             this.tbxCategoria = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategorias)).BeginInit();
             this.SuspendLayout();
             // 
-            // fguardar
-            // 
-            this.fguardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.fguardar.Location = new System.Drawing.Point(35, 5);
-            this.fguardar.Margin = new System.Windows.Forms.Padding(2);
-            this.fguardar.Name = "fguardar";
-            this.fguardar.Size = new System.Drawing.Size(28, 28);
-            this.fguardar.TabIndex = 36;
-            this.fguardar.UseVisualStyleBackColor = true;
-            // 
             // btneliminar
             // 
-            this.btneliminar.Location = new System.Drawing.Point(135, 37);
+            this.btneliminar.Location = new System.Drawing.Point(127, 78);
             this.btneliminar.Margin = new System.Windows.Forms.Padding(2);
             this.btneliminar.Name = "btneliminar";
             this.btneliminar.Size = new System.Drawing.Size(88, 28);
             this.btneliminar.TabIndex = 35;
             this.btneliminar.Text = "Eliminar";
             this.btneliminar.UseVisualStyleBackColor = true;
+            this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click);
             // 
             // btnmodificar
             // 
-            this.btnmodificar.Location = new System.Drawing.Point(35, 78);
+            this.btnmodificar.Location = new System.Drawing.Point(127, 37);
             this.btnmodificar.Margin = new System.Windows.Forms.Padding(2);
             this.btnmodificar.Name = "btnmodificar";
             this.btnmodificar.Size = new System.Drawing.Size(88, 28);
             this.btnmodificar.TabIndex = 34;
             this.btnmodificar.Text = "Modificar";
             this.btnmodificar.UseVisualStyleBackColor = true;
+            this.btnmodificar.Click += new System.EventHandler(this.btnmodificar_Click);
             // 
             // btnagregar
             // 
@@ -95,13 +87,22 @@
             this.tbxCategoria.Size = new System.Drawing.Size(188, 20);
             this.tbxCategoria.TabIndex = 37;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(32, 108);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 38;
+            this.label1.Text = "label1";
+            // 
             // Categorias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(268, 373);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.tbxCategoria);
-            this.Controls.Add(this.fguardar);
             this.Controls.Add(this.btneliminar);
             this.Controls.Add(this.btnmodificar);
             this.Controls.Add(this.btnagregar);
@@ -116,12 +117,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button fguardar;
         private System.Windows.Forms.Button btneliminar;
         private System.Windows.Forms.Button btnmodificar;
         private System.Windows.Forms.Button btnagregar;
         private System.Windows.Forms.DataGridView dgvCategorias;
         private System.Windows.Forms.TextBox tbxCategoria;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -10,7 +10,7 @@ namespace Negocio
 {
     public class MarcaNegocio
     {
-        public List<Marca> Listar()
+        public List<Marca> Lista()
         {
 
             List<Marca> lista = new List<Marca>();
@@ -41,80 +41,67 @@ namespace Negocio
                 Datos.cerrarConexion();
             }
         }
-        public void agregar(Marca nuevaMarca)
+
+        public void agregar(Marca nuevo)
         {
-            AccesoDatos datos = new AccesoDatos();
-            List<Marca> lista = new List<Marca>();
-
-            try
-            {
-                lista = listar();
-
-                foreach (Marca marca in lista) {
-
-                    if(marca.Descripcion == nuevaMarca.Descripcion)
-                    {
-
-                        //// NO PUEDO AGREGAR UN MENSAJE EN PANTALLA SOLO EN CONSOLA, LA MARCA YA EXISTE !!!
-                        Console.WriteLine("Imposible cargar, ya existe una marca con ese nombre!");
-                        return;
-                    }
-               
-                }
-
-                datos.setearConsulta("Insert into MARCAS (Descripcion)values('" + nuevaMarca.Descripcion + "')");
-                datos.ejecutarAccion();
-
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                datos.cerrarConexion();
-            }
-
-        }
-        public void modificar(Marca modifMarca)
-        {
-
-        }
-        public List<Marca> listar()
-        {
-            List<Marca> lista = new List<Marca>();
-            AccesoDatos datos = new AccesoDatos();
+            AccesoDatos Datos = new AccesoDatos();
 
             try
             {
 
-                datos.setearConsulta("Select Id, Descripcion from MARCAS");
-                datos.ejecutarLectura();
+                Datos.setearConsulta("INSERT INTO MARCAS (Descripcion) " + "VALUES (@descripcion)");
+                Datos.setearParametro("@descripcion", nuevo.Descripcion);
 
-                while (datos.Lector.Read())
-                {
-
-                    Marca aux = new Marca();
-                    aux.Id = (int)datos.Lector["Id"];
-                    aux.Descripcion = (string)datos.Lector["Descripcion"];
-
-                    lista.Add(aux);
-
-                }
-                return lista;
+                Datos.ejecutarAccion();
 
             }
             catch (Exception ex)
             {
+
                 throw ex;
             }
             finally
             {
-                datos.cerrarConexion();
+                Datos.cerrarConexion();
+
             }
+        }
+
+        public void modificar(Marca modificar)
+        {
+            AccesoDatos Datos = new AccesoDatos();
+
+            try
+            {
+                Datos.setearConsulta("UPDATE MARCAS SET Descripcion = @descripcion WHERE Id = @id");
 
 
+                Datos.setearParametro("@id", modificar.Id);
+                Datos.setearParametro("@descripcion", modificar.Descripcion);
+
+
+                Datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        public void eliminar(int id)
+        {
+            AccesoDatos Datos = new AccesoDatos();
+            try
+            {
+                Datos.setearConsulta("DELETE FROM MARCAS WHERE Id = @id");
+                Datos.setearParametro("@id", id);
+                Datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
     }
