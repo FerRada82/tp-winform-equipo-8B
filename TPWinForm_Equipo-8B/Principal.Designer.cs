@@ -49,6 +49,7 @@
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnImagen = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.agregarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -56,7 +57,6 @@
             this.contextMenuStrip4 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnAnterior = new System.Windows.Forms.Button();
             this.btnSiguiente = new System.Windows.Forms.Button();
-            this.lblContador = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -141,7 +141,7 @@
             this.btnDetalle.Image = ((System.Drawing.Image)(resources.GetObject("btnDetalle.Image")));
             this.btnDetalle.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDetalle.Name = "btnDetalle";
-            this.btnDetalle.Size = new System.Drawing.Size(29, 24);
+            this.btnDetalle.Size = new System.Drawing.Size(29, 28);
             this.btnDetalle.Text = "toolStripButton2";
             this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);
             // 
@@ -235,12 +235,23 @@
             this.btnBorrar,
             this.btnMarcas,
             this.btnCategorias,
-            this.btnDetalle});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
+            this.btnDetalle,
+            this.btnImagen});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 30);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1371, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(1371, 31);
             this.toolStrip1.TabIndex = 10;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // btnImagen
+            // 
+            this.btnImagen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnImagen.Image = ((System.Drawing.Image)(resources.GetObject("btnImagen.Image")));
+            this.btnImagen.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnImagen.Name = "btnImagen";
+            this.btnImagen.Size = new System.Drawing.Size(29, 24);
+            this.btnImagen.Text = "toolStripButton2";
+            this.btnImagen.Click += new System.EventHandler(this.btnImagen_Click);
             // 
             // menuStrip1
             // 
@@ -248,7 +259,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1371, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1371, 30);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -302,21 +313,11 @@
             this.btnSiguiente.UseVisualStyleBackColor = true;
             this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
             // 
-            // lblContador
-            // 
-            this.lblContador.AutoSize = true;
-            this.lblContador.Location = new System.Drawing.Point(1197, 35);
-            this.lblContador.Name = "lblContador";
-            this.lblContador.Size = new System.Drawing.Size(44, 16);
-            this.lblContador.TabIndex = 18;
-            this.lblContador.Text = "label1";
-            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1371, 614);
-            this.Controls.Add(this.lblContador);
             this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.btnAnterior);
             this.Controls.Add(this.clickInzquierda);
@@ -369,7 +370,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip4;
         private System.Windows.Forms.Button btnAnterior;
         private System.Windows.Forms.Button btnSiguiente;
-        private System.Windows.Forms.Label lblContador;
+        private System.Windows.Forms.ToolStripButton btnImagen;
     }
 }
 

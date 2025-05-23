@@ -24,7 +24,7 @@ namespace TPWinForm_Equipo_8B
         }
 
         private void Principal_Load(object sender, EventArgs e)
-        {
+        {    
             cargar();
         }
 
@@ -71,8 +71,8 @@ namespace TPWinForm_Equipo_8B
             {
                 if (articulo.RutasImagenes != null && articulo.RutasImagenes.Count > 0)
                 {
-                    string urlImagen = Uri.UnescapeDataString(articulo.RutasImagenes[indiceImagenActual]);
-                    pbImagen.LoadAsync(urlImagen);
+                    pbImagen.Load(articulo.RutasImagenes[indiceImagenActual]); 
+
                 }
                 else
                 {
@@ -205,6 +205,17 @@ namespace TPWinForm_Equipo_8B
             formularioDetalle.ShowDialog();
         }
 
- 
+        private void btnImagen_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado;
+            seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+
+            Imagenes formularioM = new Imagenes(seleccionado.Id);
+
+            formularioM.ShowDialog();
+            cargar();
+        }
+
+
     }
 }

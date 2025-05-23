@@ -26,7 +26,7 @@ namespace TPWinForm_Equipo_8B
         {
             InitializeComponent();
             this.articulo = articulo;
-            ;
+            
             this.modoDetalle = modoDetalle; 
             Text = modoDetalle ? "Detalle del Artículo" : "Modificar Artículo";
         }
@@ -87,22 +87,42 @@ namespace TPWinForm_Equipo_8B
          
             btnCancelar.Text = "Cerrar";
         }
-
         private void fagregar_Click(object sender, EventArgs e)
         {
+         
+            if (!ValidarCampos())
+                return;
+
             ArticuloNegocio xarticuloNegocio = new ArticuloNegocio();
 
             try
             {
-
                 if (articulo == null)
+                {
                     articulo = new Articulo();
-                    articulo.Codigo      = fcodigo.Text;
-                    articulo.Nombre      = fnombre.Text;
-                    articulo.Marca       = (Marca)fmarca.SelectedItem;
-                    articulo.Categoria   = (Categoria)fcategoria.SelectedItem;
-                    articulo.Descripcion = fdescripcion.Text;
-                    articulo.Precio      = decimal.Parse(fprecio.Text);
+                }
+
+               
+                articulo.Codigo = fcodigo.Text.Trim();
+                articulo.Nombre = fnombre.Text.Trim();
+
+                if (fmarca.SelectedItem == null || fcategoria.SelectedItem == null)
+                {
+                    MessageBox.Show("Debe seleccionar una marca y una categoría válidas");
+                    return;
+                }
+
+                articulo.Marca = (Marca)fmarca.SelectedItem;
+                articulo.Categoria = (Categoria)fcategoria.SelectedItem;
+                articulo.Descripcion = fdescripcion.Text.Trim();
+
+             
+                if (!decimal.TryParse(fprecio.Text.Trim(), out decimal precio))
+                {
+                    MessageBox.Show("Ingrese un valor numérico válido para el precio");
+                    return;
+                }
+                articulo.Precio = precio;
 
                 if (articulo.Id != 0)
                 {
@@ -116,13 +136,38 @@ namespace TPWinForm_Equipo_8B
                 }
 
                 Close();
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
-                // throw ex;
+                MessageBox.Show($"Error al guardar el artículo: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
             }
+        }
+
+        private bool ValidarCampos()
+        {
+            if (string.IsNullOrWhiteSpace(fcodigo.Text))
+            {
+                MessageBox.Show("El código es obligatorio");
+                fcodigo.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(fnombre.Text))
+            {
+                MessageBox.Show("El nombre es obligatorio");
+                fnombre.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(fprecio.Text))
+            {
+                MessageBox.Show("El precio es obligatorio");
+                fprecio.Focus();
+                return false;
+            }
+
+            return true;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
